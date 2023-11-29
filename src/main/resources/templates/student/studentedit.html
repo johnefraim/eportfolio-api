@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Portfolio - [Student Name]</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-500 p-4">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-between">
+                <div class="text-white text-2xl font-bold">Edit Portfolio</div>
+                <!-- Add additional navigation links as needed -->
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-gray-300">Home</a>
+                    <a href="#" class="text-white hover:text-gray-300">Projects</a>
+                    <a href="#" class="text-white hover:text-gray-300">Skills</a>
+                    <a href="#" class="text-white hover:text-gray-300">Contact</a>
+                    <a href="#" class="text-white hover:text-gray-300">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Edit Profile Section -->
+    <section class="container mx-auto my-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold mb-4">Edit Profile</h2>
+            <form action="#" method="post">
+                <!-- Profile Image -->
+                <div class="mb-4">
+                    <label for="profileImage" class="block text-gray-700 font-bold mb-2">Profile Image</label>
+                    <input type="file" id="profileImage" name="profileImage" class="p-2 border rounded">
+                </div>
+                <!-- Student Name -->
+                <div class="mb-4">
+                    <label for="studentName" class="block text-gray-700 font-bold mb-2">Student Name</label>
+                    <input type="text" id="studentName" name="studentName" class="p-2 border rounded w-full" placeholder="Enter your name">
+                </div>
+                <!-- Program -->
+                <div class="mb-4">
+                    <label for="program" class="block text-gray-700 font-bold mb-2">Program</label>
+                    <input type="text" id="program" name="program" class="p-2 border rounded w-full" placeholder="Enter your program">
+                </div>
+                <!-- Add more profile information fields as needed -->
+
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Save Changes</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 My E-Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

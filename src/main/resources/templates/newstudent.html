@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css}" />
+    <!-- Include your icon library if needed -->
+    <title>Add Student</title>
+</head>
+<body>
+
+<section class="py-8">
+    <div class="container mx-auto">
+        <h2 class="text-2xl font-bold mb-4">Add Student</h2>
+
+        <!-- Add Student Form -->
+        <form th:action="@{/admin/save}" method="post" th:object="${student}" class="max-w-md mx-auto bg-white p-8 shadow-md rounded">
+
+
+            <!-- Full Name -->
+            <div class="mb-4">
+                <label for="fullName" class="block text-gray-700 text-sm font-bold mb-2">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" th:field="*{fullName}" class="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" required />
+            </div>
+
+            <!-- Student ID -->
+            <div class="mb-4">
+                <label for="studentId" class="block text-gray-700 text-sm font-bold mb-2">Student ID:</label>
+                <input type="text" id="studentId" name="studentId" th:field="*{studentId}" class="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" required />
+            </div>
+
+            <!-- Contact Email -->
+            <div class="mb-4">
+                <label for="contactEmail" class="block text-gray-700 text-sm font-bold mb-2">Contact Email:</label>
+                <input type="email" id="contactEmail" name="contactEmail" th:field="*{contactEmail}" class="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" required />
+            </div>
+
+            <!-- Contact Phone -->
+            <div class="mb-4">
+                <label for="contactPhone" class="block text-gray-700 text-sm font-bold mb-2">Contact Phone:</label>
+                <input type="text" id="contactPhone" name="contactPhone" th:field="*{contactPhone}" class="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" required />
+            </div>
+
+            <!-- Program and Major -->
+<div class="mb-4">
+    <label for="programAndMajor" class="block text-gray-700 text-sm font-bold mb-2">Program and Major:</label>
+    <select id="programAndMajor" name="programAndMajor" th:field="*{programAndMajor}" class="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" required>
+        <option th:each="program : ${programs}" th:value="${program}" th:text="${program.displayName}"></option>
+    </select>
+</div>
+
+            <!-- Graduation Year -->
+            <div class="mb-4">
+                <label for="graduationYear" class="block text-gray-700 text-sm font-bold mb-2">Graduation Year:</label>
+                <input type="number" id="graduationYear" name="graduationYear" th:field="*{graduationYear}" class="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" required />
+            </div>
+
+            <!-- LinkedIn Profile -->
+            <div class="mb-4">
+                <label for="linkedinProfile" class="block text-gray-700 text-sm font-bold mb-2">LinkedIn Profile:</label>
+                <input type="text" id="linkedinProfile" name="linkedinProfile" th:field="*{linkedinProfile}" class="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" />
+            </div>
+
+            <div class="mb-4">
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add Student</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>

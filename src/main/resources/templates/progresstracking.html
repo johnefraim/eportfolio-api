@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graduating Student E-Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-500 p-4">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-between">
+                <div class="text-white text-2xl font-bold">E-Portfolio</div>
+                <div class="flex space-x-4">
+                    <a href="#about" class="text-white hover:text-gray-300">About Me</a>
+                    <a href="#education" class="text-white hover:text-gray-300">Education</a>
+                    <a href="#projects" class="text-white hover:text-gray-300">Projects</a>
+                    <a href="#skills" class="text-white hover:text-gray-300">Skills</a>
+                    <a href="#contact" class="text-white hover:text-gray-300">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ... Other Sections ... -->
+
+    <!-- Progress Tracking -->
+    <section class="container mx-auto my-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold mb-4">Progress Tracking</h2>
+            <div class="flex space-x-4">
+                <div>
+                    <input type="checkbox" id="aboutCheckbox" class="mr-2" onclick="updateProgress('about')"> About Me
+                </div>
+                <div>
+                    <input type="checkbox" id="educationCheckbox" class="mr-2" onclick="updateProgress('education')"> Education
+                </div>
+                <div>
+                    <input type="checkbox" id="projectsCheckbox" class="mr-2" onclick="updateProgress('projects')"> Projects
+                </div>
+                <div>
+                    <input type="checkbox" id="skillsCheckbox" class="mr-2" onclick="updateProgress('skills')"> Skills
+                </div>
+                <div>
+                    <input type="checkbox" id="contactCheckbox" class="mr-2" onclick="updateProgress('contact')"> Contact
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function updateProgress(section) {
+            // Update the progress in a real application (e.g., send to server or store in localStorage)
+            // For simplicity, we'll store the progress in sessionStorage for this example
+            sessionStorage.setItem(`${section}Progress`, document.getElementById(`${section}Checkbox`).checked);
+        }
+
+        // Restore progress on page load
+        ['about', 'education', 'projects', 'skills', 'contact'].forEach(section => {
+            const checkbox = document.getElementById(`${section}Checkbox`);
+            const storedProgress = sessionStorage.getItem(`${section}Progress`);
+            if (storedProgress === 'true') {
+                checkbox.checked = true;
+            }
+        });
+    </script>
+
+</body>
+</html>
