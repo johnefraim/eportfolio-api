@@ -11,10 +11,12 @@ public class Role {
 
     private String name;
     
-    // Getters and setters
-
 	public String getName() {
 		
 		return this.name;
 	}
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

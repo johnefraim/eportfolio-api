@@ -51,7 +51,5 @@ public class CustomUserDetails implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
-    // Additional methods for custom properties
 }
 
