@@ -10,25 +10,47 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 font-sans antialiased">
-
-  <nav class="bg-indigo-600 p-4 flex justify-between items-center">
-    <span class="text-white font-semibold text-xl">E-Portfolio Dashboard</span>
-      <div class="relative inline-block text-left">
-          <button id="profile-button" class="bg-white text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-200 transition">
-              <!-- You can use an icon for the user profile -->
-              <i class="fas fa-user"></i> Profile
-          </button>
-          <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="profile-button" tabindex="-1">
-              <div class="py-1" role="menuitem">
-                  <!-- Add other options here, like "Logout" -->
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" tabindex="-1" role="menuitem">Logout</a>
-                  <!-- Add more options as needed -->
+  <!--Navigation -->
+  <nav class="bg-white shadow top-0 w-full">
+    <div class="container mx-auto px-6 py-3">
+        <div class="flex justify-between items-center">
+            <div class="text-lg font-semibold">Dean's Dashboard</div>
+            <div class="flex">
+                <a href="#dashboard-overview" class="text-gray-800 hover:text-blue-500 mx-2 flex items-center">
+                    <i class="fas fa-tachometer-alt mr-2"></i> Dashboard Overview
+                </a>
+                <a href="#student-performance" class="text-gray-800 hover:text-blue-500 mx-2 flex items-center">
+                    <i class="fas fa-user-graduate mr-2"></i> Student Performance
+                </a>
+                <a href="#program-management" class="text-gray-800 hover:text-blue-500 mx-2 flex items-center">
+                    <i class="fas fa-chalkboard-teacher mr-2"></i> Program Management
+                </a>
+                <a href="#faculty-performance" class="text-gray-800 hover:text-blue-500 mx-2 flex items-center">
+                    <i class="fas fa-user-tie mr-2"></i> Faculty Performance
+                </a>
+                <a href="#notifications" class="text-gray-800 hover:text-blue-500 mx-2 flex items-center">
+                    <i class="fas fa-bell mr-2"></i> Notifications
+                </a>
+                <a href="#reporting-tools" class="text-gray-800 hover:text-blue-500 mx-2 flex items-center">
+                    <i class="fas fa-chart-line mr-2"></i> Reporting Tools
+                </a>
+                <div class="relative inline-block text-left">
+                  <button id="profile-button" class="bg-white text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-200 transition">
+                      <!-- You can use an icon for the user profile -->
+                      <i class="fas fa-user"></i> Profile
+                  </button>
+                  <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="profile-button" tabindex="-1">
+                      <div class="py-1" role="menuitem">
+                          <!-- Add other options here, like "Logout" -->
+                          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" tabindex="-1" role="menuitem">Logout</a>
+                          <!-- Add more options as needed -->
+                      </div>
+                  </div>
               </div>
-          </div>
-      </div>
-      
-  </div>
-  </nav>
+            </div>
+        </div>
+    </div>
+</nav>
 
   <main class="p-4 md:p-8 max-w-6xl mx-auto">
 

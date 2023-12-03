@@ -1,18 +1,20 @@
 package org.unc.api.user;
 
-public enum Role {
+import jakarta.persistence.*;
 
-    STUDENT("STUDENT"),
-    DEAN("DEAN"),
-    PROGRAMHEAD("PROGRAM HEAD");
+@Entity
+@Table(name = "roles")
+public class Role {
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private final String displayName;
+    private String name;
+    
+    // Getters and setters
 
-    Role(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public String getDisplayName() {
-        return displayName;
-    }
+	public String getName() {
+		
+		return this.name;
+	}
 }

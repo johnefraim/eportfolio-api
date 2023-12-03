@@ -1,72 +1,56 @@
 package org.unc.api.user;
 
-import java.util.Collection;
-import java.util.Collections;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import java.util.HashSet;
+import java.util.Set;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
-@Data
-@RequiredArgsConstructor
-public class User implements UserDetails{
+@Table(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
-    
-    @Column(name = "role")
-    @Enumerated(EnumType.STRING)
-    private Role role;
-    
-    @Column(name = "idNumber")
-    private String idNumber;
-    
-    @Column(name="password")
+
+    @NotEmpty(message = "Username must not be empty")
+    private String username;
+
+    @NotEmpty(message = "Password must not be empty")
     private String password;
-    
-    //getter and setter
-    public Long getId() {return this.id;}
-    public String getPassword() {return this.password;}
-    public void setPassword(String password) {this.password = password;}
-    public String getUsername(){return this.idNumber;}
 
-    public Role getRole(){return this.role;}
+    @Email(message = "Email should be valid")
+    private String email;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singleton(new SimpleGrantedAuthority("ROLE_" + role.name()));
-    }
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+        name = "user_roles",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Role> roles = new HashSet<>();
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
+	public String getPassword() {
+		
+		return this.password;
+	}
 
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+		
+	}
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
+	public Set<Role> getRoles() {
+		
+		return this.roles;
+	}
 
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+	public String getUsername() {
+		
+		return this.username;
+	}
+
+    // Standard getters and setters
 }

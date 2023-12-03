@@ -1,6 +1,7 @@
 package org.unc.api.config;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -8,30 +9,49 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.AccessDeniedHandler;
+import org.unc.api.user.CustomAuthenticationSuccessHandler;
 
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
 
-        @Bean
-        SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    @Autowired
+    private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
 
-            http.authorizeHttpRequests(req -> req.requestMatchers("/", "/register").permitAll()
-            .requestMatchers("/admin/**").hasRole("DEAN")
-            .requestMatchers("/student/**").hasRole("STUDENT")
-            .requestMatchers("/programhead/**").hasRole("PROGRAMHEAD")
+    @Bean
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+        .authorizeHttpRequests(req -> req
+            .requestMatchers("/", "/register", "/js/**").permitAll()
+            .requestMatchers("/admin/**").hasAuthority("ROLE_DEAN")
+            .requestMatchers("/student/**").hasAuthority("ROLE_STUDENT")
+            .requestMatchers("/programhead/**").hasAuthority("ROLE_PROGRAM_HEAD")
             .anyRequest().authenticated()
-            )
-            .formLogin(login -> login.loginPage("/login")
-            .permitAll())
-            .logout(logout -> logout.permitAll());
-            
-            return http.build();
-        }
+        )
+        .formLogin(login -> login
+            .loginPage("/login")
+            .successHandler(customAuthenticationSuccessHandler)
+            .permitAll()
+        )
+        .exceptionHandling(handling -> handling.accessDeniedHandler(accessDeniedHandler()))
+        .logout(logout -> logout.permitAll());
 
-        @Bean
-        PasswordEncoder passwordEncoder() {return new BCryptPasswordEncoder();}
-        
+        return http.build();
+    }
+
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public AccessDeniedHandler accessDeniedHandler() {
+        return (request, response, accessDeniedException) -> {
+            response.sendRedirect("/access-denied");
+        };
+    }
 }
+
 

@@ -1,43 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-    <!-- Add Tailwind CSS styles -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Login</title>
 </head>
-<body class="bg-gray-200 h-screen flex items-center justify-center">
-
-    <div class="bg-white p-8 rounded shadow-md w-96">
-        <h2 class="text-2xl mb-6 font-semibold">Sign In</h2>
-
-        <!-- Role Selection Form -->
-        <form th:action="@{/login}" method="post">
-            <!-- Role Selection -->
-            <div class="mb-4">
-                <label for="role" class="block text-gray-700 font-bold mb-2">Select Role:</label>
-                <select id="userRoles" name="userRoles" class="w-full p-2 border rounded">
-                    <option th:each="roles : ${userRoles}" th:value="${roles}" th:text="${roles.displayName}"></option>
-                </select>
-            </div>
-
-            <!-- ID Number -->
-            <div class="mb-4">
-                <label for="idNumber" class="block text-gray-700 font-bold mb-2">ID Number:</label>
-                <input type="text" id="idNumber" name="idNumber" class="w-full p-2 border rounded">
-            </div>
-
-            <!-- Password -->
-            <div class="mb-6">
-                <label for="password" class="block text-gray-700 font-bold mb-2">Password:</label>
-                <input type="password" id="password" name="password" class="w-full p-2 border rounded">
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-700">Login</button>
-        </form>
-    </div>
-
+<body>
+    <h1>Login</h1>
+    <form action="/login" method="post">
+        <div>
+            <label for="role">Role:</label>
+            <select id="role" name="role">
+                <option value="STUDENT">Student</option>
+                <option value="DEAN">Dean</option>
+                <option value="PROGRAMHEAD">Program Head</option>
+            </select>
+        </div>
+        <div>
+            <label for="username">Username: </label>
+            <input type="text" id="username" name="username"/>
+        </div>
+        <div>
+            <label for="password">Password: </label>
+            <input type="password" id="password" name="password"/>
+        </div>
+        <div>
+            <input type="submit" value="Login"/>
+        </div>
+    </form>
 </body>
 </html>
