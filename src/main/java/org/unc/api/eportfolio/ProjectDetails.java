@@ -27,4 +27,9 @@ public class ProjectDetails {
     @Column(length = 1000) 
     private String coursework;
 
+    @ManyToOne
+    @JoinColumn(name = "e_portfolio_id", referencedColumnName = "id")
+    private EportfolioEntity ePortfolio;
+
+
 }

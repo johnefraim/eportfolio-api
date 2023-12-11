@@ -25,7 +25,7 @@ public class CustomLoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
         logger.info("Authentication success for user: {}", authentication.getName());
 
         if (roles.contains("DEAN")) {
-            setDefaultTargetUrl("/admin/admin");
+            setDefaultTargetUrl("/admin/dashboard");
         } else if (roles.contains("STUDENT")) {
             setDefaultTargetUrl("/student/home");
         } else if (roles.contains("PROGRAM_HEAD")) {

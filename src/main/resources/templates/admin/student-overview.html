@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <title>Student Overview</title>
+</head>
+<body>
+    <div th:decorate="admin/admin">
+        <div th:fragment="content" class="container mx-auto p-8">
+            <h1 class="text-2xl font-bold mb-4">Student Overview</h1>
+    
+            <!-- Summary of Total Number of Students -->
+            <div class="bg-white p-6 rounded-md shadow-md mb-4">
+                <h2 class="text-lg font-bold mb-2">Total Students</h2>
+                <p class="text-4xl font-bold text-blue-500" th:text="${totalstudents}">0</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

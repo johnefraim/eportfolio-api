@@ -30,7 +30,7 @@ public class SecurityConfiguration {
         http
                 .csrf(disabled -> disabled.disable())
                 .authorizeHttpRequests(req -> req
-                        .requestMatchers("/", "/login**", "/js/**").permitAll()
+                        .requestMatchers("/","/static/**","/register").permitAll()
                         .requestMatchers("/admin/**").hasAuthority("DEAN")
                         .requestMatchers("/student/**").hasAuthority("STUDENT")
                         .requestMatchers("/programhead/**").hasAuthority("PROGRAM_HEAD")

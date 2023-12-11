@@ -9,7 +9,8 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
-
+    @Autowired
+    private RoleRepository roleRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
     
@@ -23,13 +24,12 @@ public class UserService {
     }
 
     public void register(User user) {
-        // Encrypt the password
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        
-        Role defaultRole = new Role();
-        defaultRole.setName("STUDENT");
-        user.getRoles().add(defaultRole);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        Role studentRole = roleRepository.findByName("STUDENT");
+        if (studentRole != null) {
+            user.getRoles().add(studentRole);
+        }
         userRepository.save(user);
     }
 

@@ -11,6 +11,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
+
+import org.unc.api.eportfolio.EportfolioEntity;
 import org.unc.api.user.User;
 
 
@@ -31,8 +33,11 @@ public class StudentEntity {
     @Enumerated(EnumType.STRING)
     private Program programAndMajor;
 
-
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
+
+    @OneToOne(mappedBy = "student")
+    private EportfolioEntity ePortfolio;
+
 }

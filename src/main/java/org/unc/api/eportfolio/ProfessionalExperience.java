@@ -25,4 +25,8 @@ public class ProfessionalExperience {
     @Column(length = 2000) 
     private String achievements;
 
+    @ManyToOne
+    @JoinColumn(name = "e_portfolio_id", referencedColumnName = "id")
+    private EportfolioEntity ePortfolio;
+
 }

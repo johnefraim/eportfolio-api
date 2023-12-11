@@ -36,6 +36,170 @@
             </div>
         </div>
     </section>
+    <div class="container mx-auto p-4">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-user"></i> Personal Introduction</h2>
+                <p th:text="${personalIntroduction}"></p>
+            </div>
+    
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-envelope"></i> Email</h2>
+                <p th:text="${email}"></p>
+            </div>
+    
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-linkedin"></i> LinkedIn</h2>
+                <a th:href="${linkedIn}" th:text="${linkedIn}"></a>
+            </div>
+    
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-bullseye"></i> Objective Statement</h2>
+                <p th:text="${objectiveStatement}"></p>
+            </div>
+        </div>
+    </div>
+    <div class="container mx-auto p-4">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    
+            <!-- Full Name -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-user"></i> Full Name</h2>
+                <p th:text="${fullName}"></p>
+            </div>
+    
+            <!-- GPA -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-graduation-cap"></i> GPA</h2>
+                <p th:text="${gpa}"></p>
+            </div>
+    
+            <!-- Courses -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-book"></i> Courses</h2>
+                <p th:text="${courses}"></p>
+            </div>
+    
+            <!-- Skills Overview -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-lightbulb"></i> Skills Overview</h2>
+                <p th:text="${skillsOverview}"></p>
+            </div>
+    
+            <!-- Personal Interests -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-heart"></i> Personal Interests</h2>
+                <p th:text="${personalInterests}"></p>
+            </div>
+    
+            <!-- Contact -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-phone"></i> Contact</h2>
+                <p th:text="${contact}"></p>
+            </div>
+    
+            <!-- Graduation Year -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-calendar"></i> Graduation Year</h2>
+                <p th:text="${graduationYear}"></p>
+            </div>
+    
+        </div>
+    </div>
+    <div class="container mx-auto p-4">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    
+            <!-- Project Title -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-project-diagram"></i> Project Title</h2>
+                <p th:text="${projectTitle}"></p>
+            </div>
+    
+            <!-- Project Description -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-align-left"></i> Project Description</h2>
+                <p th:text="${projectDescription}"></p>
+            </div>
+    
+            <!-- Technologies Used -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-tools"></i> Technologies Used</h2>
+                <p th:text="${technologiesUsed}"></p>
+            </div>
+    
+            <!-- Role -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-user-tag"></i> Role</h2>
+                <p th:text="${role}"></p>
+            </div>
+    
+            <!-- Outcome -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-bullseye"></i> Outcome</h2>
+                <p th:text="${outcome}"></p>
+            </div>
+    
+            <!-- Coursework -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-book-open"></i> Coursework</h2>
+                <p th:text="${coursework}"></p>
+            </div>
+    
+        </div>
+    </div>
+    <div class="container mx-auto p-4">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    
+            <!-- Company -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-building"></i> Company</h2>
+                <p th:text="${company}"></p>
+            </div>
+    
+            <!-- Role -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-user-tag"></i> Role</h2>
+                <p th:text="${role}"></p>
+            </div>
+    
+            <!-- Duration -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-clock"></i> Duration</h2>
+                <p th:text="${duration}"></p>
+            </div>
+    
+            <!-- Responsibilities -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-tasks"></i> Responsibilities</h2>
+                <p th:text="${responsibilities}"></p>
+            </div>
+    
+            <!-- Achievements -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-trophy"></i> Achievements</h2>
+                <p th:text="${achievements}"></p>
+            </div>
+    
+        </div>
+    </div>
+    <div class="container mx-auto p-4">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    
+            <!-- Certifications -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-certificate"></i> Certifications</h2>
+                <p th:text="${certifications}"></p>
+            </div>
+    
+            <!-- Workshops -->
+            <div class="mb-4">
+                <h2 class="font-bold text-xl mb-2"><i class="fa fa-chalkboard-teacher"></i> Workshops</h2>
+                <p th:text="${workshops}"></p>
+            </div>
+    
+        </div>
+    </div>
+    
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-4">
         <div class="container mx-auto text-center">

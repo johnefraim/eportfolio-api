@@ -11,6 +11,7 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class RegistrationController {
@@ -29,14 +30,19 @@ public class RegistrationController {
     }
 
     @PostMapping("/register")
-    public String registerUser(@Valid User user, BindingResult result, Model model) {
+    public String registerUser(@Valid User user, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
         
         if (result.hasErrors()) {
-            model.addAttribute("user", user);
             return "register";
         }
-
-        userService.register(user);
-        return "redirect:/login";
+        try {
+            userService.register(user);
+            redirectAttributes.addFlashAttribute("successMessage", "User successfully registered");
+            return "redirect:/login";
+        } catch (Exception e) {
+            model.addAttribute("errorMessage", "Registration failed: " + e.getMessage());
+            e.printStackTrace(); 
+            return "register";
+        }
     }
 }

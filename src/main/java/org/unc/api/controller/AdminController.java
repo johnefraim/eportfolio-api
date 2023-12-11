@@ -22,7 +22,7 @@ public class AdminController {
     }
 
     // getting the view of admin dashboard
-    @GetMapping("/dashboard")
+    @GetMapping("/admin/dashboard")
     public String adminDashboard(Model model) {
         List<StudentEntity> students = studentService.getAllStudents();
         int totalstudents = students.size();

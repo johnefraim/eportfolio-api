@@ -1,7 +1,6 @@
 package org.unc.api.eportfolio;
 
 import jakarta.persistence.*;
-import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
@@ -17,4 +16,8 @@ public class CertificationAndWorkshop {
 
     @Column(length = 2000) 
     private String workshops;
+
+    @OneToOne(mappedBy = "certificationAndWorkshop")
+    private EportfolioEntity ePortfolio;
+
 }
