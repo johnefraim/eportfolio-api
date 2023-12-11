@@ -11,6 +11,15 @@ import java.util.Set;
 @Controller
 public class DefaultController {
 
+    /**
+     * This method returns a String representing the redirect URL based on the user's role after login.
+     * If the user is authenticated and has the role "DEAN", the method returns "/admin/admin".
+     * If the user is authenticated and has the role "STUDENT", the method returns "/student/home".
+     * If the user is authenticated and has the role "PROGRAM_HEAD", the method returns "/programhead/home".
+     * If the user is not authenticated or does not have any of the specified roles, the method returns "/login".
+     *
+     * @return a String representing the redirect URL based on the user's role after login
+     */
     @GetMapping("/")
     public String defaultAfterLogin() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -25,7 +34,7 @@ public class DefaultController {
             } else if (roles.contains("PROGRAM_HEAD")) {
                 return "redirect:/programhead/home";
             }
-            // Add more roles if needed
+            
         }
         return "redirect:/login";
     }

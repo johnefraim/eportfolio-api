@@ -15,83 +15,27 @@
     <nav class="bg-blue-500 p-4">
         <div class="container mx-auto">
             <div class="flex items-center justify-between">
-                <div class="text-white text-2xl font-bold">Computer Studies Department</div>
+                <div class="text-white text-2xl font-bold">CCS Eportfolio</div>
                 <!-- Add additional navigation links as needed -->
                 <div class="flex space-x-4">
                     <a href="#" class="text-white hover:text-gray-300"><i class="fas fa-home"></i> Home</a>
                     <a href="#" class="text-white hover:text-gray-300"><i class="fas fa-user"></i> Profile</a>
-                    <a href="#" class="text-white hover:text-gray-300"><i class="fas fa-book"></i> Courses</a>
-                    <a href="#" class="text-white hover:text-gray-300"><i class="fas fa-envelope"></i> Contact</a>
+                    <a href="#" class="text-white hover:text-gray-300"><i class="fas fa-bell-o"></i> Notification</a>
                     <a th:href="@{/logout}" class="text-white hover:text-gray-300"><i class="fas fa-sign-out-alt"></i>>Logout</a>
                 </div>
             </div>
         </div>
     </nav>
-
-    <!-- Hero Section -->
-    <header class="bg-gray-800 text-white py-20">
-        <div class="container mx-auto text-center">
-            <h1 class="text-5xl font-bold mb-4">Welcome to the Computer Studies Department</h1>
-            <p class="text-lg">Explore the world of technology and innovation with us.</p>
-            <!-- Add any additional call-to-action buttons or information -->
-        </div>
-    </header>
-
-    <!-- Main Content Section -->
-    <section class="container mx-auto my-8 h-screen">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Personal Profile Overview -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-xl font-bold mb-4">Personal Profile Overview</h2>
-                <p>Name: John Doe</p>
-                <p>Major: Computer Science</p>
-                <p>Year: 3rd Year</p>
-                <p>Contact: john.doe@example.com</p>
-                <a href="#" class="text-blue-500 hover:underline">Edit Profile</a>
-            </div>
-
-            <!-- Portfolio Entries/Projects -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-xl font-bold mb-4">Portfolio Entries/Projects</h2>
-                <p>Quick access to your work, projects, or assignments.</p>
-                <a href="#" class="text-blue-500 hover:underline">Add Portfolio Item</a>
-            </div>
-
-            <!-- Academic Progress and Achievements -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-xl font-bold mb-4">Academic Progress and Achievements</h2>
-                <p>Overview of your current and past courses.</p>
-                <p>Grades, assessments, and academic honors or awards.</p>
-            </div>
-
-            <!-- Calendar and Important Dates -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-xl font-bold mb-4">Calendar and Important Dates</h2>
-                <p>Stay updated on important academic dates.</p>
-                <p>Exams, project deadlines, or meetings.</p>
-            </div>
-
-            <!-- Feedback and Reflections -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-xl font-bold mb-4">Feedback and Reflections</h2>
-                <p>Section for feedback received from instructors or peers.</p>
-                <p>Space for personal reflections or notes on academic progress and goals.</p>
-            </div>
-
-            <!-- Resource Hub -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-xl font-bold mb-4">Resource Hub</h2>
-                <p>Links to essential academic resources, guides, and support services.</p>
-            </div>
-
-            <!-- Notifications -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-xl font-bold mb-4">Notifications</h2>
-                <p>System alerts or notifications about important updates, deadlines, or feedback.</p>
+    <section class="bg-blue-100 py-8 px-4">
+        <div class="container mx-auto">
+            <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                <h1 class="text-2xl font-bold text-gray-700">
+                    Welcome, <span th:text="${username}" class="text-blue-500">!</span>
+                </h1>
+                <p class="text-gray-600 mt-2">Your Personal E-Portfolio</p>
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-4">
         <div class="container mx-auto text-center">

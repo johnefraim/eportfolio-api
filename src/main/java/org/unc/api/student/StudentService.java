@@ -1,9 +1,8 @@
 package org.unc.api.student;
 
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.unc.api.user.User;
 
 import jakarta.transaction.Transactional;
 
@@ -12,7 +11,7 @@ public class StudentService {
 
     private final StudentRepository studentRepository;
 
-    @Autowired
+    
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
@@ -29,6 +28,10 @@ public class StudentService {
         return studentRepository.countStudentsByProgramAndMajor();
     }
     
+    public StudentEntity getStudentByUser(User user){
+        return studentRepository.findByUser(user);
+    }
+
     public StudentEntity getStudentById(Long id) {
     	
     	return studentRepository.findById(id).orElseThrow(

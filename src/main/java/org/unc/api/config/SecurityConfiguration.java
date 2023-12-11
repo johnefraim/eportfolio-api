@@ -18,6 +18,13 @@ public class SecurityConfiguration {
     @Autowired
     private CustomLoginSuccessHandler successHandler;
 
+    /**
+     * Creates a SecurityFilterChain bean that configures the security filters for HTTP requests.
+     *
+     * @param http the HttpSecurity object used to configure the security filters
+     * @return the configured SecurityFilterChain object
+     * @throws Exception if an error occurs while configuring the security filters
+     */
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http

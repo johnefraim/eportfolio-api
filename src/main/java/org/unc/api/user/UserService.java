@@ -30,8 +30,11 @@ public class UserService {
         Role defaultRole = new Role();
         defaultRole.setName("STUDENT");
         user.getRoles().add(defaultRole);
-
         userRepository.save(user);
+    }
+
+    public User getUserByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
  
 }

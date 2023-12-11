@@ -7,8 +7,11 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
+import org.unc.api.user.User;
 
 
 @Data
@@ -21,25 +24,15 @@ public class StudentEntity {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "full_name")
-    private String fullName;
-
     @Column(name = "student_id")
     private String studentId;
-
-    @Column(name = "contact_email")
-    private String contactEmail;
-
-    @Column(name = "contact_phone")
-    private String contactPhone;
 
     @Column(name = "program_and_major")
     @Enumerated(EnumType.STRING)
     private Program programAndMajor;
 
-    @Column(name = "graduation_year")
-    private int graduationYear;
 
-    @Column(name = "linkedin_profile")
-    private String linkedinProfile;
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 }

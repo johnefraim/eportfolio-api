@@ -1,19 +1,18 @@
-package org.unc.api.admin;
+package org.unc.api.controller;
 
 import java.util.List;
-
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.unc.api.student.Program;
 import org.unc.api.student.StudentEntity;
 import org.unc.api.student.StudentService;
 
 @Controller
-@RequestMapping("/admin")
+@PreAuthorize("hasRole('DEAN')")
 public class AdminController {
 
     private final StudentService studentService;
@@ -22,7 +21,7 @@ public class AdminController {
         this.studentService = studentService;
     }
 
-    // display the student to the dashboard table
+    // getting the view of admin dashboard
     @GetMapping("/dashboard")
     public String adminDashboard(Model model) {
         List<StudentEntity> students = studentService.getAllStudents();
